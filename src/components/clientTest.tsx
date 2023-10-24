@@ -1,9 +1,7 @@
 "use client";
 
 import {
-  decrement,
   increment,
-  incrementByAmount,
 } from "@/features/counter/counterSlice";
 import { RootState } from "@/store/store";
 import { useQuery } from "@tanstack/react-query";
