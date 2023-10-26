@@ -1,9 +1,9 @@
-import ClientTest from "@/components/clientTest";
+// import ClientTest from "@/components/clientTest";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 ">
-      <ClientTest />
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      {/* <ClientTest /> */}
     </main>
   );
 }
