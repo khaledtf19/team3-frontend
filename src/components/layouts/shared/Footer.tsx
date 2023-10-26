@@ -186,4 +186,3 @@ export const Footer = () => {
     </main>
   );
 };
-// flex items-center justify-between
