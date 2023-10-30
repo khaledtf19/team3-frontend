@@ -1,11 +1,11 @@
+import { cn } from "@/lib/utils";
 import React from 'react'
 
-type Props={
-    children: string | JSX.Element,
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     color?: string
 }
 
-const SimpleButton = ({children, color}: Props) => {
+const SimpleButton = ({children, color, className, ...props}: Props) => {
     let classes: string = ''
     switch(color){
         case 'primary': classes+='hover:border-b-2 border-[#FF6636] text-[#FF6636]'; break;
@@ -17,7 +17,7 @@ const SimpleButton = ({children, color}: Props) => {
         default: classes+='hover:border-b-2 border-[#FF6636] text-[#FF6636]';
     }
   return (
-    <button className={classes}>{children}</button>
+    <button className={cn(classes, className)} {...props}>{children}</button>
   )
 }
 
