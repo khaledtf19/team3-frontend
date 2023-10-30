@@ -1,6 +1,9 @@
+import Button from "@/components/Button";
+import SimpleButton from "@/components/SimpleButton";
 import Link from "next/link";
 import {
   FaApple,
+  FaArrowRight,
   FaFacebookF,
   FaGooglePlay,
   FaInstagram,
@@ -13,9 +16,11 @@ export const Footer = () => {
   const currentDate = new Date().getFullYear();
 
   const linksStyles =
-    "border-orange-500 pb-1 transition-all after:hidden\
-    after:content-['->'] hover:border-b hover:after:inline-block\
-   hover:after:pl-2 hover:text-white";
+    "pb-1 after:transition-all after:duration-500\
+     group flex items-center justify-between bg-transparent hover:bg-transparent\
+     text-white/50 hover:text-white text-start pl-0 after:absolute relative after:w-0 after:h-[1px] after:bg-orange-500 \
+     after:bottom-0 after:left-0 hover:after:w-full\
+     ";
 
   return (
     <main className="bg-gray-900 py-5 text-white">
@@ -29,138 +34,174 @@ export const Footer = () => {
                 aspernatur sequi modi tenetur
               </span>
               <div className="icons flex items-center justify-start">
-                <Link
-                  href="http://facebook.com"
-                  className="after:-z- relative z-10 mr-1 bg-gray-800 p-3 text-xl shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm"
-                >
-                  <FaFacebookF />
-                </Link>
-                <Link
-                  href="http://instagram.com"
-                  className="after:-z- relative z-10 mr-1 bg-gray-800 p-3 text-xl shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm"
-                >
-                  <FaInstagram />
-                </Link>
-                <Link
-                  href="http://linkedin.com"
-                  className="after:-z- relative z-10 mr-1 bg-gray-800 p-3 text-xl shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm"
-                >
-                  <FaLinkedin />
-                </Link>
-                <Link
-                  href="http://twitter.com"
-                  className="after:-z- relative z-10 mr-1 bg-gray-800 p-3 text-xl shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm"
-                >
-                  <FaTwitter />
-                </Link>
-                <Link
-                  href="http://youtub.com"
-                  className="after:-z- relative z-10 mr-1 bg-gray-800 p-3 text-xl shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm"
-                >
-                  <FaYoutube />
-                </Link>
+                <SimpleButton className="relative z-10 mr-1 border-none bg-gray-800 p-3 text-xl text-white shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm">
+                  <Link href="http://facebook.com">
+                    <FaFacebookF />
+                  </Link>
+                </SimpleButton>
+                <SimpleButton className="relative z-10 mr-1 border-none bg-gray-800 p-3 text-xl text-white shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm">
+                  <Link href="http://instagram.com">
+                    <FaInstagram />
+                  </Link>
+                </SimpleButton>
+                <SimpleButton className="relative z-10 mr-1 border-none bg-gray-800 p-3 text-xl text-white shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm">
+                  <Link href="http://twitter.com">
+                    <FaTwitter />
+                  </Link>
+                </SimpleButton>
+                <SimpleButton className="relative z-10 mr-1 border-none bg-gray-800 p-3 text-xl text-white shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm">
+                  <Link href="http://linkedin.com">
+                    <FaLinkedin />
+                  </Link>
+                </SimpleButton>
+                <SimpleButton className="relative z-10 mr-1 border-none bg-gray-800 p-3 text-xl text-white shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm">
+                  <Link href="http://youtub.com">
+                    <FaYoutube />
+                  </Link>
+                </SimpleButton>
               </div>
-            </div>{" "}
-            {/* col-span-1  */}
+            </div>
             <div className="flex-grow-1 top-4">
               <h6 className="text-sm">TOP 4 CATEGORY</h6>
-              <ul className="list my-5 text-white/50">
-                <li className="pb-1">
-                  <Link href="/department" className={linksStyles}>
-                    Department
-                  </Link>
-                </li>
-                <li className="w-44 whitespace-nowrap pb-1">
-                  <Link href="/finance-&-accounting" className={linksStyles}>
-                    Finance & Accounting
-                  </Link>
-                </li>
-                <li className="pb-1">
-                  <Link href="/design" className={linksStyles}>
-                    Design
-                  </Link>
-                </li>
-                <li className="pb-1">
-                  <Link href="/business" className={linksStyles}>
-                    Business
-                  </Link>
-                </li>
-              </ul>
+              <Button variant="secondary" className={`${linksStyles} mt-2`}>
+                <Link href="/department">Department</Link>
+                <FaArrowRight className="hidden pl-1.5 text-sm group-hover:inline-block" />
+              </Button>
+              <Button
+                size="small"
+                variant="secondary"
+                className={`${linksStyles} w-[168px]`}
+              >
+                <Link href="/finance-&-accounting">Finance & Accounting</Link>
+                <FaArrowRight className="hidden pl-1.5 text-sm group-hover:inline-block" />
+              </Button>
+              <Button
+                size="small"
+                variant="secondary"
+                className={`${linksStyles}`}
+              >
+                <Link href="/business">Business</Link>
+                <FaArrowRight className="hidden pl-1.5 text-sm group-hover:inline-block" />
+              </Button>
+              <Button
+                size="small"
+                variant="secondary"
+                className={`${linksStyles}`}
+              >
+                <Link href="/design">Design</Link>
+                <FaArrowRight className="hidden pl-1.5 text-sm group-hover:inline-block" />
+              </Button>
             </div>
             <div className="links">
               <h6 className="text-sm">QUICK LINKS</h6>
-              <ul className="list my-5  text-white/50">
-                <li className=" pb-1 ">
-                  <Link href="/about" className={linksStyles}>
-                    About
-                  </Link>
-                </li>
-                <li className="w-44 pb-1">
-                  <Link href="/become-instructor" className={linksStyles}>
-                    Become Instructor
-                  </Link>
-                </li>
-                <li className="pb-1">
-                  <Link href="/contact" className={linksStyles}>
-                    Contact
-                  </Link>
-                </li>
-                <li className="pb-1">
-                  <Link href="/carrer" className={linksStyles}>
-                    Carrer
-                  </Link>
-                </li>
-              </ul>
+              <Button
+                size="small"
+                variant="secondary"
+                className={`${linksStyles} mt-4`}
+              >
+                <Link href="/about">About</Link>
+                <FaArrowRight className="hidden pl-1.5 text-sm group-hover:inline-block" />
+              </Button>
+              <Button
+                size="small"
+                variant="secondary"
+                className={`${linksStyles} w-36`}
+              >
+                <Link href="/become-instructor">Become instructor</Link>
+                <FaArrowRight className="hidden pl-1.5 text-sm group-hover:inline-block" />
+              </Button>
+              <Button
+                size="small"
+                variant="secondary"
+                className={`${linksStyles}`}
+              >
+                <Link href="/Contact">Contact</Link>
+                <FaArrowRight className="hidden pl-1.5 text-sm group-hover:inline-block" />
+              </Button>
+              <Button
+                size="small"
+                variant="secondary"
+                className={`${linksStyles}`}
+              >
+                <Link href="/carrer">Carrer</Link>
+                <FaArrowRight className="hidden pl-1.5 text-sm group-hover:inline-block" />
+              </Button>
             </div>
             <div className="support">
               <h6 className="text-sm">SUPPORT</h6>
-              <ul className="list my-5  text-white/50">
-                <li className=" pb-1 ">
-                  <Link href="/help" className={linksStyles}>
-                    Help Center
-                  </Link>
-                </li>
-                <li className="pb-1">
-                  <Link href="/faqs" className={linksStyles}>
-                    FAQs
-                  </Link>
-                </li>
-                <li className="w-44 pb-1">
-                  <Link href="/terms-conditions" className={linksStyles}>
-                    Terms & Condition
-                  </Link>
-                </li>
-                <li className="pb-1">
-                  <Link href="/privacy-policy" className={linksStyles}>
-                    Privacy Policy
-                  </Link>
-                </li>
-              </ul>
+              <Button
+                size="small"
+                variant="secondary"
+                className={`${linksStyles} mt-4`}
+              >
+                <Link href="/help-center">Help Center</Link>
+                <FaArrowRight className="hidden pl-1.5 text-sm group-hover:inline-block" />
+              </Button>
+              <Button
+                size="small"
+                variant="secondary"
+                className={`${linksStyles}`}
+              >
+                <Link href="/faqs">FAQs</Link>
+                <FaArrowRight className="hidden pl-1.5 text-sm group-hover:inline-block" />
+              </Button>
+              <Button
+                size="small"
+                variant="secondary"
+                className={`${linksStyles} w-40`}
+              >
+                <Link href="/terms-and-condition">Terms & Condition</Link>
+                <FaArrowRight className="hidden pl-1.5 text-sm group-hover:inline-block" />
+              </Button>
+              <Button
+                size="small"
+                variant="secondary"
+                className={`${linksStyles}`}
+              >
+                <Link href="/privacy-and-policy">Privacy & Policy</Link>
+                <FaArrowRight className="hidden pl-1.5 text-sm group-hover:inline-block" />
+              </Button>
             </div>
-            <div className="download">
-              <h6 className="whitespace-nowrap text-sm">DOWNLOAD OUR APP</h6>
-              <Link href="downloadApp/andriod-version">
-                <div className="iphone my-2 flex w-fit items-center justify-evenly bg-gray-800 p-2">
-                  <FaApple className="me-2 text-3xl" />
+            <div className="download p-1">
+              <h6 className="whitespace-nowrap text-[12px]">
+                DOWNLOAD OUR APP
+              </h6>
+              <Button
+                variant="secondary"
+                size="medium"
+                className="my-1 bg-gray-800 p-2 text-white hover:bg-transparent"
+              >
+                <Link
+                  href="/downloadApp/andriod-version"
+                  className="flex items-center"
+                >
+                  <FaApple className="me-2 text-2xl" />
                   <div className="info">
-                    <span className="m-0 block h-3 text-xs text-white/40">
+                    <span className="block h-4 text-[10px] text-white/40">
                       Download Now
                     </span>
-                    <p className="text-lg">App Store</p>
+                    <p className="text-md">App Store</p>
                   </div>
-                </div>
-              </Link>
-              <Link href="downloadApp/ios-version">
-                <div className="iphone flex w-fit items-center justify-evenly bg-gray-800 p-2">
-                  <FaGooglePlay className="me-2 text-3xl" />
+                </Link>
+              </Button>
+              <Button
+                variant="secondary"
+                size="medium"
+                className="my-1 block bg-gray-800 p-2 text-white hover:bg-transparent"
+              >
+                <Link
+                  href="/downloadApp/ios-version"
+                  className="flex items-center"
+                >
+                  <FaGooglePlay className="me-2 text-2xl" />
                   <div className="info">
-                    <span className="m-0 block h-3 text-xs text-white/40">
+                    <span className="block h-4 text-[10px] text-white/40">
                       Download Now
                     </span>
-                    <p className="text-lg">Play Store</p>
+                    <p className="text-md">Play Store</p>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -172,11 +213,7 @@ export const Footer = () => {
           <span className="text-white">Templatecookie</span>. All rights
           reserved
         </p>
-        <div
-          className="
-        mt-5
-         inline-block w-full text-center md:mt-0 md:w-1/2 md:text-end "
-        >
+        <div className="mt-5 inline-block w-full text-center md:mt-0 md:w-1/2 md:text-end">
           <select className="cursor-pointer border border-white bg-gray-900 p-1 text-white/50 outline-none">
             <option value="en">English</option>
             <option value="ar">Arabic</option>
