@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import SimpleButton from "@/components/SimpleButton";
 import Link from "next/link";
 import {
   FaApple,
@@ -33,36 +34,31 @@ export const Footer = () => {
                 aspernatur sequi modi tenetur
               </span>
               <div className="icons flex items-center justify-start">
-                <Link
-                  href="http://facebook.com"
-                  className="after:-z- relative z-10 mr-1 bg-gray-800 p-3 text-xl shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm"
-                >
-                  <FaFacebookF />
-                </Link>
-                <Link
-                  href="http://instagram.com"
-                  className="after:-z- relative z-10 mr-1 bg-gray-800 p-3 text-xl shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm"
-                >
-                  <FaInstagram />
-                </Link>
-                <Link
-                  href="http://linkedin.com"
-                  className="after:-z- relative z-10 mr-1 bg-gray-800 p-3 text-xl shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm"
-                >
-                  <FaLinkedin />
-                </Link>
-                <Link
-                  href="http://twitter.com"
-                  className="after:-z- relative z-10 mr-1 bg-gray-800 p-3 text-xl shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm"
-                >
-                  <FaTwitter />
-                </Link>
-                <Link
-                  href="http://youtub.com"
-                  className="after:-z- relative z-10 mr-1 bg-gray-800 p-3 text-xl shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm"
-                >
-                  <FaYoutube />
-                </Link>
+                <SimpleButton className="after:-z- relative z-10 mr-1 border-none bg-gray-800 p-3 text-xl text-white shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm">
+                  <Link href="http://facebook.com">
+                    <FaFacebookF />
+                  </Link>
+                </SimpleButton>
+                <SimpleButton className="after:-z- relative z-10 mr-1 border-none bg-gray-800 p-3 text-xl text-white shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm">
+                  <Link href="http://instagram.com">
+                    <FaInstagram />
+                  </Link>
+                </SimpleButton>
+                <SimpleButton className="after:-z- relative z-10 mr-1 border-none bg-gray-800 p-3 text-xl text-white shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm">
+                  <Link href="http://twitter.com">
+                    <FaTwitter />
+                  </Link>
+                </SimpleButton>
+                <SimpleButton className="after:-z- relative z-10 mr-1 border-none bg-gray-800 p-3 text-xl text-white shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm">
+                  <Link href="http://linkedin.com">
+                    <FaLinkedin />
+                  </Link>
+                </SimpleButton>
+                <SimpleButton className="after:-z- relative z-10 mr-1 border-none bg-gray-800 p-3 text-xl text-white shadow-lg transition after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:bg-orange-500 hover:after:w-full hover:after:blur-sm">
+                  <Link href="http://youtub.com">
+                    <FaYoutube />
+                  </Link>
+                </SimpleButton>
               </div>
             </div>
             <div className="flex-grow-1 top-4">
