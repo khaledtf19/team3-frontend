@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import React from 'react'
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    color?: string
+    color?: 'primary' | 'secondary' | 'gray' | 'success' | 'warning' | 'danger'
 }
 
 const SimpleButton = ({children, color, className, ...props}: Props) => {
