@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   AiOutlineCreditCard,
   AiOutlineHome,
   AiOutlineMessage,
 } from "react-icons/ai";
+import { FaBars } from "react-icons/fa";
 import { GoSignOut, GoStack } from "react-icons/go";
 import {
   IoAddCircleOutline,
@@ -16,43 +17,37 @@ import {
 } from "react-icons/io5";
 
 export const Sidebar = () => {
-  const [sidebar, setSidebar] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === "Tab") {
-        e.preventDefault();
-        setSidebar(true);
-        console.log(sidebar);
-      } else if (e.key === "Escape") {
-        e.preventDefault();
-        setSidebar(false);
-        console.log(sidebar);
-      }
-    };
-    document.addEventListener("keydown", handleKeyPress);
-    return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-    };
-  }, [sidebar]);
 
   const activeRoute = (path: string): boolean => {
     return pathname === path;
   };
 
+  const [sidebar, setSidebar] = useState(false);
+  const handleSidebar = () => {
+    setSidebar(!sidebar);
+  };
   return (
     <div
-      className={`side-bar fixed top-0 z-20 h-screen w-60 bg-gray-900 ${
-        sidebar ? "left-0" : "-left-60"
-      } transition-all duration-1000`}
+      className={`duration-600 group fixed top-0 z-20
+     h-screen overflow-hidden whitespace-nowrap
+      bg-gray-900 transition-all md:w-11
+       md:hover:w-60
+       ${sidebar ? "w-60" : "w-11"}`}
     >
-      {/* <ShowAndHide /> */}
-      <div className="logo border-b border-white/20 p-4 text-center">
+      <div className="logo border-b border-white/20 p-0 text-center md:p-1 md:group-hover:p-4">
         <h6>LMS website</h6>
       </div>
-      <div className="container h-4/5">
-        <ul className="py-5 text-white/40 ">
+      <div className="container h-4/5 whitespace-nowrap">
+        <ul className="py-5 text-white/40">
+          {/* for small size screen*/}
+          <div
+            className="mb-2 flex w-full items-center justify-center p-2 pl-4 text-white transition hover:text-orange-500 md:hidden"
+            onClick={handleSidebar}
+          >
+            <FaBars className="" />
+          </div>
+          {/* for small size screen*/}
           <li className="w-full">
             <Link
               href="/"
@@ -110,17 +105,17 @@ export const Sidebar = () => {
               Earning
             </Link>
           </li>
-          <li className="relative w-full">
+          <li className="relative w-60">
             <Link
               href="/message"
-              className={`mb-2 block w-full p-2 pl-4 transition hover:bg-orange-500 hover:text-white ${
+              className={`mb-2 block p-2 pl-4 transition hover:bg-orange-500 hover:text-white ${
                 activeRoute("/message") ? "bg-orange-500 text-white" : ""
               }`}
             >
               <AiOutlineMessage className="mb-1 mr-3 inline-block" />
               Message
             </Link>
-            <p className="notification absolute right-5 top-1/4 flex h-6 w-6 -translate-x-1/2 items-center justify-center rounded-full bg-orange-500 text-xs text-white">
+            <p className="absolute right-5 top-1/4 flex h-6 w-6 -translate-x-1/2 items-center justify-center rounded-full bg-orange-500 text-xs text-white">
               99+
             </p>
           </li>
