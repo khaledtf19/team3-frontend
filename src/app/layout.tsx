@@ -1,4 +1,5 @@
 import { Footer } from "@/components/layouts/shared/Footer";
+import { Sidebar } from "@/components/layouts/shared/Sidebar";
 import { StoreProvider } from "@/providers/StoreProvider";
 import TenStackProvider from "@/providers/tanStackProvider";
 import type { Metadata } from "next";
@@ -20,9 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} relative`}>
         <StoreProvider>
           <TenStackProvider>
+            <Sidebar />
             {children}
             <Footer />
           </TenStackProvider>
